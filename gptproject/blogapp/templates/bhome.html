@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+
+{% block contents %}
+<body>
+<div>
+    <div class="jumbotron" style="padding-top:100px">
+        <h1 class="display-4">
+            <div class="container">
+                 <h1 style="font-weight:600; color:darkslategrey"> 데이터 게시판 </h1>
+            </div>
+        </h1>
+        <div class="container">  
+            <p class="lead"> 데이터 게시판입니다. 작성한 글을 올려주세요. </p>
+        </div>
+        <div class="container">
+            <hr class="my-4">
+            <p>문의 사항이 있으면 자유롭게 문의 해 주세요.</p>
+            
+            <button type="button" class="btn btn-dark"><a href="{% url 'bnew' %}"  style="color:white;" > New Post </a></button>
+        </div>
+    </div>
+</div>
+
+{% for blog in blogs.all %}
+    <div class="container">
+        <div class="card" style="padding:7px" >
+            <div class="card-body">
+            <a href="{% url 'detail' blog.id %}"> <h5 class="card-title">{{blog.title}}</h5></a>
+            <h6 class="card-subtitle mb-2 text-muted">{{blog.author}}  -  {{blog.pub_date}}</h6>
+            <p class="card-text">{{blog.summary}}  <a href="{% url 'detail' blog.id %}">...more</a> </p>
+            </div>
+        </div>
+    </div>
+<br>
+{% endfor %}
+</body>
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block contents %}
+{% load staticfiles %}
+ 
+<body>
+    <br>
+    <div class="container" style="padding-top:100px;">
+        <h1 style="font-weight:600; color:darkslategray"> 새 글생성하기 </h1>
+        <br>
+    <div class="container">
+        <form action="{% url 'result' %}" method="POST">
+        {% csrf_token%} 
+        <br>
+        <h4>시작 문장 및 주제를 입력해 주세요.</h4>
+        
+        <h6> &nbsp;&nbsp;&nbsp; - 작문이 완료되려면, 약 5분이 소요됩니다.</h6>
+        <br>
+        <textarea cols=40 rows=10 name="topic"></textarea>
+        <br>
+        <br>
+        <input class="btn btn-dark" type="submit" value="제출하기">
+    </form>
+    </div>
+    </div>
+</body>
+{% endblock %}

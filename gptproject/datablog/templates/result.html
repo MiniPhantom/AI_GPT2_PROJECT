@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block contents %}
+
+{% load staticfiles %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head> 
+<body>
+    <div id="loading"><img id="loading-image" src="{%static 'img/loading.gif' %}" alt="Loading..." /></div>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="card" style="padding:7px" >
+        <div class="card-body">
+        <h5 class="card-title">AI가 생성한 글</h5>   
+        <h6 class="card-subtitle mb-2 text-muted">입력한 글 : {{initial}}</h6>
+        <p class="card-text">{{text}}</p>
+        </div>
+    </div>      
+</div>
+</body>
+{% endblock %}
